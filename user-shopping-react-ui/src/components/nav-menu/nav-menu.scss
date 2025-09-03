@@ -1,0 +1,37 @@
+.nav-menu{
+    background-color: lightgray;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+    &__right-section{
+        display: flex;
+        align-items: flex-end;
+        width: 40%;
+        justify-content: space-between;
+        height: 100%;
+
+    &__links{
+        display: flex;
+        gap: 10%;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    &__logout{
+        margin-left: auto;
+        cursor: pointer;
+        .btn{
+            width: 100px;
+            // height: 30px;
+            border-radius: 5px;
+            background-color: #dc3545;
+        }
+    }
+}
+}

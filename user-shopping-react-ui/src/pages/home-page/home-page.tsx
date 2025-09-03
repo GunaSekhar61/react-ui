@@ -1,5 +1,7 @@
+import NavMenu from "../../components/nav-menu/nav-menu";
+
 const Homepage = () => {
-    return <div>Homepage</div>;
+    return <><NavMenu /></>
 }
 
 export default Homepage;
