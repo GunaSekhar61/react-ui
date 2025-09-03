@@ -70,16 +70,22 @@ const SignUpForm = () => {
         });
     }
 
+    const handleNavigate = ()=>{
+        navigate('/login');
+    }
+
     useEffect(()=>{
         userName && setTimeout(()=>{
             setUserName("");
             navigate('/login');
         }, 5000)
     },[userName])
-    return <form onSubmit={handleSubmit} className="signup-form">
+    return <div className="signup">
+    <form onSubmit={handleSubmit} className="signup-form">
         {userName && <Alert  variant="filled" severity="success">User USERNAME: {userName} registered successfully, try to login</Alert>}
         <h2 className="signup-form__header">Sign Up</h2>
         <div className="signup-form__fields">
+            <div className="signup-form__fields-field">
             <label className="signup-form__fields-label" htmlFor="">First Name</label>
             <input 
             onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -91,9 +97,9 @@ const SignUpForm = () => {
             type="text" 
             name="firstName" />
             <br />
+            </div>
             {showError.fName && <span className="signup-form__fields-error">{showError.fName}</span>}
-        </div>
-        <div className="signup-form__fields">
+            <div className="signup-form__fields-field">
             <label className="signup-form__fields-label" htmlFor="">Last Name</label>
             <input 
             onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -106,8 +112,8 @@ const SignUpForm = () => {
             name="lastName" />
             <br />
             {showError.lName && <span className="signup-form__fields-error">{showError.lName}</span>}
-        </div>
-        <div className="signup-form__fields">
+            </div>
+            <div className="signup-form__fields-field">
             <label className="signup-form__fields-label" htmlFor="">Enter your mail</label>
             <input 
             onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -120,8 +126,10 @@ const SignUpForm = () => {
             name="email" />
             <br />
             {showError.email && <span className="signup-form__fields-error">Invalid Email Address</span>}
-        </div>
-        <div className="signup-form__fields">
+            </div>
+
+            <div className="signup-form__fields-field">
+
             <label className="signup-form__fields-label" htmlFor="">Enter your Password</label>
             <input 
             onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -132,8 +140,8 @@ const SignUpForm = () => {
             name="password" />
             <br />
             {showError.pwd && <span className="signup-form__fields-error">{showError.pwd}</span>}
-        </div>
-        <div className="signup-form__fields">
+            </div>
+            <div className="signup-form__fields-field">
             <label className="signup-form__fields-label" htmlFor="">Confirm password</label>
             <input 
             onChange={(e: React.ChangeEvent<HTMLInputElement>)=>{
@@ -144,11 +152,14 @@ const SignUpForm = () => {
             type="password" />
             <br />
             {showError.confirmPwd && <span className="signup-form__fields-error">{showError.confirmPwd}</span>}
+            </div>
+            <div className="signup-form__btn">
+        <button className="signup-form__btn-login" type="button" onClick={handleNavigate}>Login</button>
+        <button className="signup-form__btn-signup" type="submit">Sign Up</button>
         </div>
-        <button className="signup-form__login-btn btn">Login</button>
-        <button className="signup-form__signup-btn btn" type="submit">Sign Up</button>
-        
+        </div>
     </form>
+    </div>
 }
 
 export default SignUpForm;
